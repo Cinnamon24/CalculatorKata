@@ -1,16 +1,19 @@
 package calculator.impl;
 
 import calculator.Calculator;
+import org.apache.commons.lang3.StringUtils;
 
-import java.security.InvalidParameterException;
 import java.util.Arrays;
 
 public class KataCalculatorImpl implements Calculator {
+    private static final int ZERO = 0;
+    private static final int MAX_AVAILABLE_SIZE = 2;
+
     @Override
     public int add(String numbers) {
-        int sum = 0;
-        if (numbers.isEmpty()) {
-            return 0;
+        int sum = ZERO;
+        if (StringUtils.isEmpty(numbers)) {
+            return sum;
         } else {
             String[] numbersArray = numbers.split(",");
             sum = calculate(numbersArray);
@@ -30,12 +33,10 @@ public class KataCalculatorImpl implements Calculator {
     }
 
     private int calculate(String[] numbersArray) {
-        if (numbersArray.length > 2) {
+        if (numbersArray.length > MAX_AVAILABLE_SIZE) {
             throw new IllegalArgumentException();
         }
-        if (numbersArray.length == 1) {
-            return Integer.parseInt(numbersArray[0]);
-        }
-        return Integer.parseInt(numbersArray[0]) + Integer.parseInt(numbersArray[1]);
+
+        return Arrays.stream(numbersArray).map(Integer::parseInt).reduce(Integer::sum).get();
     }
 }

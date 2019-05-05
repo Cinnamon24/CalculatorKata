@@ -10,7 +10,7 @@ public class CalculatorImpl implements Calculator {
 
     @Override
     public int add(int first, int second) {
-        return add(first, second);
+        return first + second;
     }
 
     @Override

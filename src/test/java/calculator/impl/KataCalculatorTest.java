@@ -40,4 +40,11 @@ public class KataCalculatorTest {
     public void shouldReturnCorrectResultWhenStringContainTwoNumbers() {
         assertEquals(3, calculator.add("1,2"));
     }
+
+    @Test
+    public void shouldReturnCorrectResultWhenStringContainUnknownAmountOfNumbers() {
+        assertEquals(15, calculator.add("1,2,3,4,5"));
+    }
+
+
 }

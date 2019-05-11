@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 public class KataCalculatorImpl implements Calculator {
     private static final int ZERO = 0;
-    private static final int MAX_AVAILABLE_SIZE = 2;
+
 
     @Override
     public int add(String numbers) {
@@ -25,9 +25,6 @@ public class KataCalculatorImpl implements Calculator {
     }
 
     private int calculate(String[] numbersArray) {
-        if (numbersArray.length > MAX_AVAILABLE_SIZE) {
-            throw new IllegalArgumentException();
-        }
         return Arrays.stream(numbersArray).map(Integer::parseInt).reduce(Integer::sum).get();
     }
 }

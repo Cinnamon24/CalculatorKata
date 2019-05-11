@@ -1,8 +1,6 @@
 package calculator.impl;
 
 import calculator.Calculator;
-import calculator.impl.CalculatorImpl;
-import calculator.impl.KataCalculatorImpl;
 import org.junit.Before;
 import org.junit.Test;
 

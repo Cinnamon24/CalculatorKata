@@ -11,15 +11,7 @@ public class KataCalculatorImpl implements Calculator {
 
     @Override
     public int add(String numbers) {
-        int sum = ZERO;
-        if (StringUtils.isEmpty(numbers)) {
-            return sum;
-        } else {
-            String[] numbersArray = numbers.split(",");
-            sum = calculate(numbersArray);
-        }
-
-        return sum;
+        return StringUtils.isEmpty(numbers) ? ZERO : calculate(numbers.split(","));
     }
 
     @Override
@@ -36,7 +28,6 @@ public class KataCalculatorImpl implements Calculator {
         if (numbersArray.length > MAX_AVAILABLE_SIZE) {
             throw new IllegalArgumentException();
         }
-
         return Arrays.stream(numbersArray).map(Integer::parseInt).reduce(Integer::sum).get();
     }
 }
